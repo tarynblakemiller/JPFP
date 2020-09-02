@@ -14,8 +14,9 @@ export const setRobots = (robots) => {
 //thunk creator
 export const fetchRobots = () => {
   return async (dispatch) => {
-    const { data: allRobots } = await axios.get("/api/robots");
-    dispatch(setRobots(allRobots));
+    const response = await axios.get("/api/robots");
+    console.log("where the fuck is my", response.data);
+    dispatch(setRobots(response.data));
   };
 };
 

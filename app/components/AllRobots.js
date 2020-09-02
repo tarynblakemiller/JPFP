@@ -7,8 +7,16 @@ import { fetchRobots } from "../redux/robots";
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
 
 export class AllRobots extends React.Component {
+  constructor() {
+    super();
+  }
   componentDidMount() {
-    this.props.getRobots();
+    console.log("component mounted");
+    if (this.props.getRobots()) {
+      this.props.getRobots();
+    } else {
+      return <div>Not loaded</div>;
+    }
   }
   render() {
     const { robots } = this.props;
@@ -38,7 +46,9 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    getRobots: () => dispatch(fetchRobots()),
+    getRobots: () => {
+      dispatch(fetchRobots());
+    },
   };
 };
 

@@ -7,10 +7,19 @@ export const setProjects = (projects) => {
   return { type: SET_PROJECTS, projects };
 };
 
+// export const getProjects = () => async (dispatch) => {
+//   try {
+//     const { data } = await axios.get("/api/projects");
+//     dispatch(setProjects(data));
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
 export const fetchProjects = () => {
   return async (dispatch) => {
-    const { data: allProjects } = await axios.get("/api/projects");
-    dispatch(setProjects(allProjects));
+    const response = await axios.get("/api/projects");
+    dispatch(setProjects(response.data));
   };
 };
 
