@@ -11,12 +11,16 @@ export const setRobots = (robots) => {
   return { type: SET_ROBOTS, robots };
 };
 
-//thunk creator
+//thunk creators
 export const fetchRobots = () => {
   return async (dispatch) => {
-    const response = await axios.get("/api/robots");
-    console.log("where the fuck is my", response.data);
-    dispatch(setRobots(response.data));
+    try {
+      const response = await axios.get("/api/robots");
+      console.log("hello");
+      dispatch(setRobots(response.data));
+    } catch (err) {
+      console.error(err);
+    }
   };
 };
 
