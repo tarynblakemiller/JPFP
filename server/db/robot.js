@@ -25,7 +25,8 @@ const Robot = db.define("robot", {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: "../public/irongiant.png",
+    defaultValue:
+      "https://www.indiewire.com/wp-content/uploads/2017/07/screen-shot-2017-07-22-at-12-17-05-pm.png?resize=800,531",
   },
 });
 

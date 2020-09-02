@@ -8,13 +8,13 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 #### Frontend
 
-- [ ] Write a component to display a list of all robots (at least their names and imageUrls)
-- [ ] Write a component to display a list of all projects (at least their titles and deadlines)
-- [ ] Write a robots sub-reducer to manage robots in your Redux store
-- [ ] Write a projects sub-reducer to manage projects in your Redux store
+- [x ] Write a component to display a list of all robots (at least their names and imageUrls)
+- [ x] Write a component to display a list of all projects (at least their titles and deadlines)
+- [x ] Write a robots sub-reducer to manage robots in your Redux store
+- [x ] Write a projects sub-reducer to manage projects in your Redux store
 - [ ] Display the AllRobots component when the url matches `/robots`
 - [ ] Display the AllProjects component when the url matches `/projects`
-- [ ] Add links to the navbar that can be used to navigate to the all-projects view and the all-robots view
+- [x ] Add links to the navbar that can be used to navigate to the all-projects view and the all-robots view
 
 #### Backend
 
@@ -31,12 +31,12 @@ The requirements below are broken into separate **tiers**, which model the way w
   - [ x] deadline - a date
   - [ x] priority - an integer between 1 and 10
   - [ x] completed - boolean value, defaults to false
-  - [ ] description - extremely large text
+  - [ x] description - extremely large text
 - [ x] Robots may be associated with many projects. Likewise, projects may be associated with many robots.
 
 #### Seed
 
-- [ ] Running the seed file creates projects and robots for demonstration purposes
+- [x ] Running the seed file creates projects and robots for demonstration purposes
 
 Congrats! You have completed your first vertical slice! Make sure to `commit -m "Feature: Get all robots and projects"` before moving on (see RUBRIC.md - points are awarded/deducted for a proper git workflow)!
 

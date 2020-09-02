@@ -1,7 +1,7 @@
 const { green, red } = require("chalk");
 const { db, Project, Robot } = require("./server/db");
 
-export const anHourFromNow = new Date(Date.now() + 60 * (60 * 1000)).toString();
+const anHourFromNow = new Date(Date.now() + 60 * (60 * 1000)).toString();
 
 const robots = [
   { id: 1, name: "R2-D2", imageUrl: "/images/r2d2.png" },

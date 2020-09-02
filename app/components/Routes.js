@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { AllRobots } from "./AllRobots";
 import { AllProjects } from "./AllProjects";
 
@@ -20,11 +20,11 @@ const Routes = () => {
             awaiting assignments!
           </h1>
           <p>This seems like a nice place to get started with some Routes!</p>
+          <Switch>
+            <Route exact path="/robots" component={AllRobots} />
+            <Route exact path="/projects" component={AllProjects} />
+          </Switch>
         </main>
-        <AllRobots />
-        <Route exact path="/robots" component={AllRobots} />
-        <AllProjects />
-        <Route exact path="/projects" component={AllProjects} />
       </div>
     </Router>
   );

@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const initialState = [];
-
 //action types
 
 export const SET_ROBOTS = "SET_ROBOTS";
@@ -20,6 +18,8 @@ export const fetchRobots = () => {
     dispatch(setRobots(allRobots));
   };
 };
+
+const initialState = [];
 
 // Take a look at app/redux/index.js to see where this reducer is
 // added to the Redux store with combineReducers
