@@ -4,9 +4,24 @@ const { db, Project, Robot } = require("./server/db");
 const anHourFromNow = new Date(Date.now() + 60 * (60 * 1000)).toString();
 
 const robots = [
-  { id: 1, name: "R2-D2", imageUrl: "/images/r2d2.png" },
-  { id: 2, name: "WALL-E", imageUrl: "/images/walle.jpeg" },
-  { id: 3, name: "IRON-GIANT", imageUrl: "/images/walle.jpeg" },
+  {
+    id: 1,
+    name: "R2-D2",
+    imageUrl:
+      "https://www.sideshow.com/storage/product-images/400155/r2-d2_star-wars_feature.jpg",
+  },
+  {
+    id: 2,
+    name: "WALL-E",
+    imageUrl:
+      "https://images-na.ssl-images-amazon.com/images/I/417h1G2gbJL._AC_.jpg",
+  },
+  {
+    id: 3,
+    name: "IRON-GIANT",
+    imageUrl:
+      "https://m.media-amazon.com/images/M/MV5BMTQ5NTM4NTY5MV5BMl5BanBnXkFtZTgwOTg2Mzc2NjE@._V1_UX477_CR0,0,477,268_AL_.jpg",
+  },
 ];
 
 const projects = [

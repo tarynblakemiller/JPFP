@@ -5,9 +5,10 @@ import { fetchProjects } from "../redux/projects";
 // Notice that we're exporting the AllProjects component twice. The named export
 // (below) is not connected to Redux, while the default export (at the very
 // bottom) is connected to Redux. Our tests should cover _both_ cases.
-export class AllProjects extends React.Component {
+class AllProjects extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
   componentDidMount() {
     this.props.getProjects();

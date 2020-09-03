@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import { AllRobots } from "./AllRobots";
-import { AllProjects } from "./AllProjects";
+import AllRobots from "./AllRobots";
+import AllProjects from "./AllProjects";
+import SingleRobot from "./SingleRobot";
+import SingleProject from "./SingleProject";
 
 //imported Link, and Route here now
 
@@ -23,6 +25,8 @@ const Routes = () => {
           <Switch>
             <Route exact path="/robots" component={AllRobots} />
             <Route exact path="/projects" component={AllProjects} />
+            <Route path="/robots/:robotId" component={SingleRobot} />
+            <Route path="/projects/:projectId" component={SingleProject} />
           </Switch>
         </main>
       </div>
