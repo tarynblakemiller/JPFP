@@ -11,15 +11,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:robotId", async (req, res, next) => {
+router.get("/robots/:robotId", async (req, res, next) => {
   try {
-    const robotId = req.params.id;
-    const robot = await Robot.findOne({
-      where: { id: id },
-      include: [{ model: Project }],
+    const id = req.params.robotId;
+    const robot = await Robot.findByPk(id, {
+      include: [Project],
     });
     if (robot) {
-      return res.json({ robot });
+      return res.json(robot);
     }
     return res.status(404).send("Robot does not exist");
   } catch (error) {

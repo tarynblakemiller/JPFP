@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchRobots } from "../redux/robots";
-
-// Notice that we're exporting the AllRobots component twice. The named export
-// (below) is not connected to Redux, while the default export (at the very
-// bottom) is connected to Redux. Our tests should cover _both_ cases.
+import { Link } from "react-router-dom";
 
 class AllRobots extends React.Component {
   constructor(props) {
@@ -17,17 +14,17 @@ class AllRobots extends React.Component {
   }
   render() {
     const { robots } = this.props;
-    console.log(this.props);
     return (
       <div>
+        <h2>Employees {console.log(this.props)}</h2>
         {robots &&
           robots.map((robot) => {
             return (
-              <div className="robot" key={robot.id}>
-                <h4 className="center">{robot.name}</h4>
-                <div>
+              <div key={robot.id}>
+                <Link to={`/robots/${robot.id}`} className="button">
+                  {robot.name}
                   <img src={robot.imageUrl} />
-                </div>
+                </Link>
               </div>
             );
           })}

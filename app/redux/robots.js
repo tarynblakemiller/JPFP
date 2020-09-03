@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const SET_ROBOTS = "SET_ROBOTS";
 export const FETCH_ROBOTS = "FETCH_ROBOTS";
-export const GET_SINGLE_ROBOT = "GET_SINGLE_ROBOT";
+
 
 //action creators
 
@@ -12,12 +12,7 @@ export const setRobots = (robots) => {
   return { type: SET_ROBOTS, robots };
 };
 
-export const singleRobot = (id) => {
-  return {
-    type: "GET_SINGLE_ROBOT",
-    id,
-  };
-};
+
 
 //thunk creators
 export const fetchRobots = () => {
