@@ -18,9 +18,6 @@ export const fetchProjects = () => {
   };
 };
 
-// Take a look at app/redux/index.js to see where this reducer is
-// added to the Redux store with combineReducers
-
 const initialState = [];
 
 export default function projectsReducer(state = initialState, action) {

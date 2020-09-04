@@ -12,8 +12,6 @@ export const setRobots = (robots) => {
   return { type: SET_ROBOTS, robots };
 };
 
-
-
 //thunk creators
 export const fetchRobots = () => {
   return async (dispatch) => {

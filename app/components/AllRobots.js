@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 class AllRobots extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    // this.state = {};
   }
 
   componentDidMount() {
@@ -22,9 +22,10 @@ class AllRobots extends React.Component {
             return (
               <div key={robot.id}>
                 <Link to={`/robots/${robot.id}`} className="button">
-                  {robot.name}
+                  <div className="name">{robot.name}</div>
                   <img src={robot.imageUrl} />
                 </Link>
+                <div>{this.props.children}</div>
               </div>
             );
           })}

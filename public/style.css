@@ -31,3 +31,7 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+
+links {
+  color: #c0c0c0;
+}

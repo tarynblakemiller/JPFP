@@ -13,20 +13,15 @@ const Routes = () => {
         <nav>
           Welcome!
           <Link to="/">Home</Link>
-          <Link to="/robots">All Robots</Link>
-          <Link to="/projects">All Projects</Link>
+          <Link to="/robots">Robots</Link>
+          <Link to="/projects">Projects</Link>
         </nav>
         <main>
-          <h1>
-            Welcome to StackBot Project Management: your robot employees are
-            awaiting assignments!
-          </h1>
-          <p>This seems like a nice place to get started with some Routes!</p>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/robots" component={AllRobots} />
-            <Route exact path="/projects" component={AllProjects} />
             <Route exact path="/robots/:robotId" component={SingleRobot} />
+            <Route exact path="/projects" component={AllProjects} />
             <Route
               exact
               path="/projects/:projectId"
@@ -40,5 +35,3 @@ const Routes = () => {
 };
 
 export default Routes;
-
-//setting the Allrobots component here and its route

@@ -11,7 +11,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/robots/:robotId", async (req, res, next) => {
+router.get("/:robotId", async (req, res, next) => {
   try {
     const id = req.params.robotId;
     const robot = await Robot.findByPk(id, {

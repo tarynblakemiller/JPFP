@@ -34,7 +34,7 @@ const seed = async () => {
   try {
     await db.sync({ force: true });
 
-    await Promise.all(
+    const employees = await Promise.all(
       robots.map((robot) =>
         Robot.create({
           name: robot.name,
@@ -43,7 +43,7 @@ const seed = async () => {
       )
     );
 
-    await Promise.all(
+    const assignments = await Promise.all(
       projects.map((project) =>
         Project.create({
           id: project.id,
@@ -51,6 +51,8 @@ const seed = async () => {
         })
       )
     );
+
+    await employees[0].addProject(assignments[0]);
 
     // seed your database here!
   } catch (err) {

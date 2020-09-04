@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //acton type
-export const GET_SINGLE_ROBOT = "GOT_SINGLE_ROBOT";
+export const GET_SINGLE_ROBOT = "GET_SINGLE_ROBOT";
 export const UPDATE_ROBOT = "UPDATE_ROBOT";
 export const DELETE_ROBOT = "DELETE_ROBOT";
 
@@ -37,18 +37,16 @@ export const deleteRobotThunk = (id) => async (dispatch) => {
   dispatch(deleteRobot(response.data));
 };
 
-const initialState = {
-  robot: {},
-};
+const initialState = {};
 
 const singleRobotReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SINGLE_ROBOT:
-      return { ...state, robot: action.robot };
+      return action.robot;
     case UPDATE_ROBOT:
-      return { ...state, robot: action.robot };
+      return action.robot;
     case DELETE_ROBOT:
-      return { ...state, robot: {} };
+      return initialState;
     default:
       return state;
   }
