@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchProjects } from "../redux/projects";
+import { Link } from "react-router-dom";
 
 class AllProjects extends React.Component {
   constructor(props) {
@@ -18,8 +19,10 @@ class AllProjects extends React.Component {
           projects.map((project) => {
             return (
               <div className="project" key={project.id}>
-                <div>Title: {project.title}</div>
-                <div>Deadline: {project.deadline}</div>
+                <Link to={`/projects/${project.id}`}>
+                  {project.title}
+                  <div>Deadline: {project.deadline}</div>
+                </Link>
               </div>
             );
           })}

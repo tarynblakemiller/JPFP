@@ -25,7 +25,6 @@ class AllRobots extends React.Component {
                   <div className="name">{robot.name}</div>
                   <img src={robot.imageUrl} />
                 </Link>
-                <div>{this.props.children}</div>
               </div>
             );
           })}

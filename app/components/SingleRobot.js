@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getSingleRobotThunk } from "../redux/singleRobot";
+import { Link } from "react-router-dom";
 
 class SingleRobot extends React.Component {
   constructor(props) {
@@ -24,7 +25,10 @@ class SingleRobot extends React.Component {
           projects.map((project) => {
             return (
               <div className="project" key={project.id}>
-                <div>Title: {project.title}</div>
+                <Link to={`/projects/${project.id}`}>
+                  {project.title}
+                  <div>Deadline: {project.deadline}</div>
+                </Link>
                 <div>Deadline: {project.deadline}</div>
               </div>
             );

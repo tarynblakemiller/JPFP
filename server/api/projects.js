@@ -17,9 +17,12 @@ router.get("/:projectId", async (req, res, next) => {
     const project = await Project.findByPk(id, {
       include: [Robot],
     });
-    res.json(project);
+    if (project) {
+      return res.json(project);
+    }
+    return res.status(404).send("Project does not exist");
   } catch (error) {
-    next(error);
+    return res.status(500).send(error);
   }
 });
 

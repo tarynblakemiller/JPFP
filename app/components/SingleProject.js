@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getSingleProjectThunk } from "../redux/singleProject";
+import { Link } from "react-router-dom";
 
 class SingleProject extends React.Component {
   constructor(props) {
@@ -18,12 +19,13 @@ class SingleProject extends React.Component {
         <div>{project.title}</div>
         <h5>{project.deadline}</h5>
         <h3>{project.priority}</h3>
+        <h2>{project.description}</h2>
         <h4>Projects Assigned To</h4>
         {robots &&
           robots.map((robot) => {
             return (
               <div className="robot" key={robot.id}>
-                <div>Task Assigned To: {robot.name}</div>
+                <Link to={`/robots/${robot.id}`}>{robot.name}</Link>
               </div>
             );
           })}
