@@ -26,7 +26,7 @@ router.get("/:projectId", async (req, res, next) => {
   }
 });
 
-router.post("/projects", async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     const newProject = await Project.create(req.body);
     res.send(newProject);

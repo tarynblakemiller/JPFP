@@ -8,6 +8,7 @@ import { Home } from "./Home";
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
 import { Form } from "./RobotForm";
+import { Form2 } from "./ProjectForm";
 
 const Routes = () => {
   return (
@@ -31,6 +32,7 @@ const Routes = () => {
               path="/projects/:projectId"
               component={SingleProject}
             />
+            <Route exact path="/project/new" component={Form2} />
           </Switch>
         </main>
       </div>

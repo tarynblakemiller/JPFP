@@ -15,6 +15,9 @@ class AllProjects extends React.Component {
     const { projects } = this.props;
     return (
       <div>
+        <Link to="/project/new">
+          <button>Add Project</button>
+        </Link>
         {projects &&
           projects.map((project) => {
             return (
