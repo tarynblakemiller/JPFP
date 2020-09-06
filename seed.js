@@ -53,6 +53,7 @@ const seed = async () => {
     );
 
     await employees[0].addProject(assignments[0]);
+    await employees[1].addProject(assignments[1]);
 
     // seed your database here!
   } catch (err) {

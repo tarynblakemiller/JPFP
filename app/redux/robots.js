@@ -5,7 +5,6 @@ import axios from "axios";
 export const SET_ROBOTS = "SET_ROBOTS";
 export const FETCH_ROBOTS = "FETCH_ROBOTS";
 
-
 //action creators
 
 export const setRobots = (robots) => {

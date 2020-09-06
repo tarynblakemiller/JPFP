@@ -26,4 +26,36 @@ router.get("/:projectId", async (req, res, next) => {
   }
 });
 
+router.post("/projects", async (req, res, next) => {
+  try {
+    const newProject = await Project.create(req.body);
+    res.send(newProject);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put("/:projectId", async (req, res, next) => {
+  try {
+    const editProject = await Project.findById(req.params.id);
+    res.send(await editProject.update(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete("/projectId", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    await Project.destory({
+      where: {
+        id: id,
+      },
+    });
+    res.status(204).send(Robots.findById(id));
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

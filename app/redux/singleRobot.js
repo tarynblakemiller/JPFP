@@ -2,6 +2,7 @@ import axios from "axios";
 
 //acton type
 export const GET_SINGLE_ROBOT = "GET_SINGLE_ROBOT";
+export const ADD_NEW_ROBOT = "ADD_NEW_ROBOT";
 export const UPDATE_ROBOT = "UPDATE_ROBOT";
 export const DELETE_ROBOT = "DELETE_ROBOT";
 
@@ -9,6 +10,11 @@ export const DELETE_ROBOT = "DELETE_ROBOT";
 export const getSingleRobot = (robot) => ({
   type: GET_SINGLE_ROBOT,
   robot,
+});
+
+export const addNewRobot = (robot) => ({
+  type: ADD_NEW_ROBOT,
+  robot: robot,
 });
 
 export const updateRobot = (robot) => ({
@@ -27,6 +33,11 @@ export const getSingleRobotThunk = (id) => async (dispatch) => {
   dispatch(getSingleRobot(response.data));
 };
 
+export const createRobotThunk = (name, fuelType) => async (dispatch) => {
+  const response = await axios.post(`/api/robots/`, { name, fuelType });
+  dispatch(addNewRobot(response.data));
+};
+
 export const updateRobotThunk = (id) => async (dispatch) => {
   const response = await axios.put(`/api/robots/${id}`);
   dispatch(updateRobot(response.data));
@@ -43,10 +54,12 @@ const singleRobotReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_SINGLE_ROBOT:
       return action.robot;
+    case ADD_NEW_ROBOT:
+      return { ...state, robot: {} };
     case UPDATE_ROBOT:
       return action.robot;
     case DELETE_ROBOT:
-      return initialState;
+      return { ...state, robot: {} };
     default:
       return state;
   }

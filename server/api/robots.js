@@ -11,6 +11,21 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.delete("/:robotId", async (req, res, next) => {
+  try {
+    const id = req.params.robotId;
+    const robot = await Robot.findByPk(id, {
+      where: {
+        id: id,
+      },
+    });
+    await robot.destroy();
+    res.send(204);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/:robotId", async (req, res, next) => {
   try {
     const id = req.params.robotId;
@@ -23,6 +38,24 @@ router.get("/:robotId", async (req, res, next) => {
     return res.status(404).send("Robot does not exist");
   } catch (error) {
     return res.status(500).send(error);
+  }
+});
+
+router.post("/", async (req, res, next) => {
+  try {
+    const newRobot = await Robot.create(req.body);
+    res.send(newRobot);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put("/robotId", async (req, res, next) => {
+  try {
+    const updateRobot = await Robot.findById(req.params.id);
+    res.send(await updateRobot.update(req.body));
+  } catch (error) {
+    next(error);
   }
 });
 
