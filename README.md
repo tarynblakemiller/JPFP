@@ -1,3 +1,8 @@
+The SD processing is taking longer than I had expected. 
+
+JPFP Video Link: 
+https://youtu.be/B1Kc_BqTqnA
+
 # Junior Phase Final Project
 
 ## Getting started
