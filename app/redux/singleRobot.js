@@ -1,10 +1,8 @@
 import axios from "axios";
 
-//acton type
 export const GET_SINGLE_ROBOT = "GET_SINGLE_ROBOT";
 export const UPDATE_ROBOT = "UPDATE_ROBOT";
 
-//action creator
 export const getSingleRobot = (robot) => ({
   type: GET_SINGLE_ROBOT,
   robot,

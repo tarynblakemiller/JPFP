@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
 router.delete("/:projectId", async (req, res, next) => {
   try {
     const projectId = req.params.projectId;
-    await Project.destory({
+    await Project.destroy({
       where: {
         id: projectId,
       },

@@ -37,7 +37,7 @@ export const createProjectThunk = (title) => async (dispatch) => {
 
 export const deleteProjectThunk = (id) => async (dispatch) => {
   try {
-    const response = await axios.delete(`/api/robots/${id}`);
+    const response = await axios.delete(`/api/projects/${id}`);
     dispatch(deleteProject(id));
   } catch (error) {
     console.error(error);

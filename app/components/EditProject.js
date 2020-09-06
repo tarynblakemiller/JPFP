@@ -7,7 +7,7 @@ class EditProject extends React.Component {
     super(props);
     this.state = {
       title: props.project.name || "",
-      completed: props.project.completed,
+      completed: props.project.completed || false,
     };
   }
 
