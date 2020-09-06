@@ -40,7 +40,6 @@ class SingleRobot extends React.Component {
         <img src={robot.imageUrl} />
         <h5>{robot.fuelLevel}</h5>
         <h3>{robot.fuelType}</h3>
-        <button>X</button>
         <button>Edit</button>
         <h4>Robot's Projects</h4>
         {this.renderProjects()}

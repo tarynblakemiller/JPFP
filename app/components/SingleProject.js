@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getSingleProjectThunk } from "../redux/singleProject";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 class SingleProject extends React.Component {
   constructor(props) {

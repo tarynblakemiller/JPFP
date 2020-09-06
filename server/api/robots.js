@@ -11,20 +11,20 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:robotId", async (req, res, next) => {
-  try {
-    const id = req.params.robotId;
-    const robot = await Robot.findByPk(id, {
-      where: {
-        id: id,
-      },
-    });
-    await robot.destroy();
-    res.send(204);
-  } catch (error) {
-    next(error);
-  }
-});
+// router.delete("/:robotId", async (req, res, next) => {
+//   try {
+//     const id = req.params.robotId;
+//     const robot = await Robot.findByPk(id, {
+//       where: {
+//         id: id,
+//       },
+//     });
+//     await robot.destroy();
+//     res.sendStatus(204);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 router.get("/:robotId", async (req, res, next) => {
   try {
@@ -35,9 +35,9 @@ router.get("/:robotId", async (req, res, next) => {
     if (robot) {
       return res.json(robot);
     }
-    return res.status(404).send("Robot does not exist");
+    return res.sendStatus(404).send("Robot does not exist");
   } catch (error) {
-    return res.status(500).send(error);
+    return res.sendStatus(500).send(error);
   }
 });
 
