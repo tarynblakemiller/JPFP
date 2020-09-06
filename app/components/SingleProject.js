@@ -2,14 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import { getSingleProjectThunk } from "../redux/singleProject";
 import { Link } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import EditProject from "./EditProject";
 
 class SingleProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      showForm: false,
     };
+    this.hideForm = this.hideForm.bind(this);
+  }
+
+  hideForm() {
+    this.setState({
+      showForm: !this.state.showForm,
+    });
   }
 
   componentDidMount() {
@@ -32,12 +39,16 @@ class SingleProject extends React.Component {
   render() {
     const project = this.props.project;
     const robots = project ? this.props.project.robots : [];
+    const { showForm } = this.state;
+
     return (
       <div>
         <div>{project.title}</div>
         <h5>{project.deadline}</h5>
         <h3>{project.priority}</h3>
         <h2>{project.description}</h2>
+        {showForm && <EditProject project={project} />}
+        <button onClick={() => this.hideForm()}>Edit</button>
         <h4>Projects Assigned To</h4>
         {this.renderRobots()}
       </div>

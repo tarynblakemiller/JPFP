@@ -11,6 +11,20 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.delete("/:projectId", async (req, res, next) => {
+  try {
+    const projectId = req.params.projectId;
+    await Project.destory({
+      where: {
+        id: projectId,
+      },
+    });
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/:projectId", async (req, res, next) => {
   try {
     const id = req.params.projectId;
@@ -37,22 +51,8 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:projectId", async (req, res, next) => {
   try {
-    const editProject = await Project.findById(req.params.id);
-    res.send(await editProject.update(req.body));
-  } catch (error) {
-    next(error);
-  }
-});
-
-router.delete("/:projectId", async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    await Project.destory({
-      where: {
-        id: id,
-      },
-    });
-    res.status(204).send(Robots.findById(id));
+    const project = await Project.findByPk(req.params.projectId);
+    res.send(await project.update(req.body));
   } catch (error) {
     next(error);
   }

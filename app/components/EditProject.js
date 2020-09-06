@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createProjectThunk } from "../redux/projects";
+import { updateProjectThunk } from "../redux/singleProject";
 
-class ProjectForm extends React.Component {
+class EditProject extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
+      title: props.project.name || "",
+      completed: props.project.completed,
     };
   }
 
@@ -15,14 +16,15 @@ class ProjectForm extends React.Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
+    const id = this.props.project.id;
     const { title } = this.state;
-    this.props.createProject(title);
-    this.setState({ title: "" });
+    const data = { title };
+    this.props.updateProject(id, data);
   };
   render() {
     const { title } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="title">Title:</label>
           <input
@@ -32,7 +34,7 @@ class ProjectForm extends React.Component {
             onChange={this.handleChange}
           />
         </div>
-        <button type="submit">Save Changes</button>
+        <button type="submit">Save Changes:</button>
       </form>
     );
   }
@@ -40,8 +42,8 @@ class ProjectForm extends React.Component {
 
 const mapDispatch = (dispatch) => {
   return {
-    createProject: (title) => dispatch(createProjectThunk(title)),
+    updateProject: (id, project) => dispatch(updateProjectThunk(id, project)),
   };
 };
 
-export default connect(null, mapDispatch)(ProjectForm);
+export default connect(null, mapDispatch)(EditProject);

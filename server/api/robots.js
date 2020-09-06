@@ -51,8 +51,8 @@ router.post("/", async (req, res, next) => {
 
 router.put("/:robotId", async (req, res, next) => {
   try {
-    const updateRobot = await Robot.findById(req.params.id);
-    res.send(await updateRobot.update(req.body));
+    const robot = await Robot.findByPk(req.params.robotId);
+    res.send(await robot.update(req.body));
   } catch (error) {
     next(error);
   }

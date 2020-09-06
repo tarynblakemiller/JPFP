@@ -26,23 +26,17 @@ class AllRobots extends React.Component {
 
   render() {
     const { showForm } = this.state;
-    const style = {
-      backgroundColor: "green",
-      color: "white",
-      align: "center",
-    };
     const { robots } = this.props;
     return (
       <div>
         {showForm && <Form />}
         <header>
-          <button onClick={() => this.hideForm("showForm")}>Add Robot</button>
+          <button onClick={() => this.hideForm()}>Add Robot</button>
         </header>
         {robots &&
           robots.map((robot) => {
             return (
               <div className="all-robots" key={robot.id} robot={robot}>
-                <button style={style}>Edit</button>
                 <button onClick={() => this.props.deleteRobot(robot.id)}>
                   X
                 </button>

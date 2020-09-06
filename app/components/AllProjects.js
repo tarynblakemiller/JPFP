@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProjects } from "../redux/projects";
+import { fetchProjects, deleteProjectThunk } from "../redux/projects";
 import { Link } from "react-router-dom";
-import { Form2 } from "../components/ProjectForm";
+import ProjectForm from "../components/ProjectForm";
 
 class AllProjects extends React.Component {
   constructor(props) {
@@ -26,12 +26,15 @@ class AllProjects extends React.Component {
     const { projects } = this.props;
     return (
       <div>
-        {showForm && <Form2 />}
-        <button onClick={() => this.hideForm("showForm")}>Add Project</button>
+        {showForm && <ProjectForm />}
+        <button onClick={() => this.hideForm()}>Add Project</button>
         {projects &&
           projects.map((project) => {
             return (
               <div className="project" key={project.id}>
+                <button onClick={() => this.props.deleteProject(project.id)}>
+                  X
+                </button>
                 <Link to={`/projects/${project.id}`}>
                   {project.title}
                   <div>Deadline: {project.deadline}</div>
@@ -52,7 +55,12 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    getProjects: () => dispatch(fetchProjects()),
+    getProjects: () => {
+      dispatch(fetchProjects());
+    },
+    deleteProject: (id) => {
+      dispatch(deleteProjectThunk(id));
+    },
   };
 };
 

@@ -1,13 +1,9 @@
 import axios from "axios";
 
-//action types
-
 export const SET_ROBOTS = "SET_ROBOTS";
 export const FETCH_ROBOTS = "FETCH_ROBOTS";
 export const ADD_NEW_ROBOT = "ADD_NEW_ROBOT";
 export const DELETE_ROBOT = "DELETE_ROBOT";
-
-//action creators
 
 export const setRobots = (robots) => {
   return { type: SET_ROBOTS, robots };
@@ -18,17 +14,11 @@ export const addNewRobot = (robot) => ({
   robot: robot,
 });
 
-export const createRobotThunk = (name, fuelType) => async (dispatch) => {
-  const response = await axios.post(`/api/robots/`, { name, fuelType });
-  dispatch(addNewRobot(response.data));
-};
-
 export const deleteRobot = (id) => ({
   type: DELETE_ROBOT,
   id,
 });
 
-//thunk creators
 export const fetchRobots = () => {
   return async (dispatch) => {
     try {
@@ -38,6 +28,11 @@ export const fetchRobots = () => {
       console.error(err);
     }
   };
+};
+
+export const createRobotThunk = (name, fuelType) => async (dispatch) => {
+  const response = await axios.post(`/api/robots/`, { name, fuelType });
+  dispatch(addNewRobot(response.data));
 };
 
 export const deleteRobotThunk = (id) => async (dispatch) => {

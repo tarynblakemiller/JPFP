@@ -1,15 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getSingleRobotThunk, updateRobotThunk } from "../redux/singleRobot";
+import { getSingleRobotThunk } from "../redux/singleRobot";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import EditRobot from "./EditRobot";
 
 class SingleRobot extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      showForm: false,
     };
+    this.hideForm = this.hideForm.bind(this);
+  }
+
+  hideForm() {
+    this.setState({
+      showForm: !this.state.showForm,
+    });
   }
 
   componentDidMount() {
@@ -36,13 +43,15 @@ class SingleRobot extends React.Component {
   render() {
     const robot = this.props.robot;
     const projects = robot ? this.props.robot.projects : [];
+    const { showForm } = this.state;
     return (
       <div>
         <div>{robot.name}</div>
         <img src={robot.imageUrl} />
         <h5>{robot.fuelLevel}</h5>
         <h3>{robot.fuelType}</h3>
-        <button>Edit</button>
+        {showForm && <EditRobot robot={robot} />}
+        <button onClick={() => this.hideForm()}>Edit</button>
         <h4>Robot's Projects</h4>
         {this.renderProjects()}
       </div>
