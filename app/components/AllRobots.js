@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchRobots } from "../../redux/robots";
+import { fetchRobots } from "../redux/robots";
 import { Link } from "react-router-dom";
-import { deleteRobotThunk } from "../../redux/singleRobot";
-import { Form } from "../RobotForm";
+import { deleteRobotThunk } from "../redux/robots";
+import { Form } from "./RobotForm";
 
 class AllRobots extends React.Component {
   constructor(props) {
@@ -34,18 +34,18 @@ class AllRobots extends React.Component {
     const { robots } = this.props;
     return (
       <div>
-        {showMe && <Form />}
+        {showForm && <Form />}
         <header>
-          Employees View
-          {/*<Link to="/robot/new"></Link>*/}
           <button onClick={() => this.hideForm("showForm")}>Add Robot</button>
         </header>
         {robots &&
           robots.map((robot) => {
             return (
-              <div key={robot.id} robot={robot}>
+              <div className="all-robots" key={robot.id} robot={robot}>
                 <button style={style}>Edit</button>
-                {/*<button onClick={this.props.deleteRobot(robot.id)}>X</button>*/}
+                <button onClick={() => this.props.deleteRobot(robot.id)}>
+                  X
+                </button>
                 <Link to={`/robots/${robot.id}`} className="button">
                   <div className="name">{robot.name}</div>
                   <img src={robot.imageUrl} />
@@ -69,9 +69,9 @@ const mapDispatch = (dispatch) => {
     getRobots: () => {
       dispatch(fetchRobots());
     },
-    // deleteRobot: (id) => {
-    //   dispatch(deleteRobotThunk(id));
-    // },
+    deleteRobot: (id) => {
+      dispatch(deleteRobotThunk(id));
+    },
   };
 };
 

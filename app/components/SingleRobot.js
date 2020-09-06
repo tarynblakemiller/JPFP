@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getSingleRobotThunk } from "../redux/singleRobot";
+import { getSingleRobotThunk, updateRobotThunk } from "../redux/singleRobot";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class SingleRobot extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class SingleRobot extends React.Component {
   componentDidMount() {
     this.props.gotSingleRobot(this.props.match.params.robotId);
   }
+
   renderProjects = () => {
     const robot = this.props.robot;
     const projects = robot ? this.props.robot.projects : [];

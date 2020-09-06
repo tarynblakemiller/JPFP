@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchProjects } from "../redux/projects";
 import { Link } from "react-router-dom";
-import { Form2 } from "./ProjectForm";
+import { Form2 } from "../components/ProjectForm";
 
 class AllProjects extends React.Component {
   constructor(props) {

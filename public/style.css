@@ -5,12 +5,12 @@
 
 * {
   box-sizing: border-box;
-  font-family: arial, sans-serif;
+  font-family: "Times New Roman", sans-serif;
 }
 
 body {
-  background: linear-gradient(#a4ecec, #c0c0c0);
-  height: 100vh;
+  background: linear-gradient(black, white);
+  height: 100vw;
   padding: 0;
   margin: 0;
   width: 100vw;
@@ -18,7 +18,7 @@ body {
 
 nav {
   align-items: center;
-  background-color: #6bace9;
+  background-color: #a8c2da;
   color: #36455a;
   display: flex;
   height: 80px;
@@ -30,6 +30,28 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.home {
+  background-image: url("https://www.sciencenews.org/wp-content/uploads/2019/11/110819_ts_ai_feat.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vw;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+.all-robots {
+  background: radial-gradient(black, white);
+}
+
+.all-projects {
+  background: radial-gradient(black, white);
+}
+
+.form {
+  background: whitesmoke;
 }
 
 links {

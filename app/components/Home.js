@@ -1,19 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-export default function HomePage() {
-  return (
-    <div className="container">
-      <h1>Home Page</h1>
-      <p>
-        <Link to="/">Go Home</Link>
-      </p>
-    </div>
-  );
+export default class HomePage extends React.Component {
+  render() {
+    return (
+      <div className="home">
+        <h1>StackBot Inc.</h1>
+        <h3>Employee Portal</h3>
+      </div>
+    );
+  }
 }
-
-// <h1>
-//   Welcome to StackBot Project Management: your robot employees are awaiting
-//   assignments!
-// </h1>;
-// <p>This seems like a nice place to get started with some Routes!</p>

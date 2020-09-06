@@ -44,7 +44,7 @@ router.put("/:projectId", async (req, res, next) => {
   }
 });
 
-router.delete("/projectId", async (req, res, next) => {
+router.delete("/:projectId", async (req, res, next) => {
   try {
     const id = req.params.id;
     await Project.destory({

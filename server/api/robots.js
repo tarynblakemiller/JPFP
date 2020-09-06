@@ -11,20 +11,19 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-// router.delete("/:robotId", async (req, res, next) => {
-//   try {
-//     const id = req.params.robotId;
-//     const robot = await Robot.findByPk(id, {
-//       where: {
-//         id: id,
-//       },
-//     });
-//     await robot.destroy();
-//     res.sendStatus(204);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.delete("/:robotId", async (req, res, next) => {
+  const robotId = req.params.robotId;
+  try {
+    await Robot.destroy({
+      where: {
+        id: robotId,
+      },
+    });
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.get("/:robotId", async (req, res, next) => {
   try {
@@ -50,7 +49,7 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.put("/robotId", async (req, res, next) => {
+router.put("/:robotId", async (req, res, next) => {
   try {
     const updateRobot = await Robot.findById(req.params.id);
     res.send(await updateRobot.update(req.body));

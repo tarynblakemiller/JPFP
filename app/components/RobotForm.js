@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createRobotThunk } from "../redux/singleRobot";
+import { createRobotThunk } from "../redux/robots";
 
 class RobotForm extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class RobotForm extends React.Component {
   render() {
     const { name, fuelType } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
           <input
